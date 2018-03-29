@@ -1,0 +1,43 @@
+// 引入样式
+//@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import './assets/bootstrap/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.css';
+@import '../node_modules/ngx-toastr/toastr.css';
+@import '../node_modules/@swimlane/ngx-datatable/release/index.css';
+@import '../node_modules/@swimlane/ngx-datatable/release/themes/material.css';
+@import '../node_modules/@swimlane/ngx-datatable/release/assets/icons.css';
+@import "./assets/daterangepicker/daterangepicker";
+// 自定义样式
+@import './assets/scss/base';
+@import './assets/scss/loading';
+@import './assets/scss/ngx-datatable';
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  font-size: 15px;
+}
+
+.d-inline-block {
+  .d-flex {
+    .btn-link {
+      border: none !important;
+    }
+  }
+}
+
+// responsive(导航栏)
+@media screen and (max-width: 768px) {
+  .push-right {
+    .nav-wrapper {
+      display: block !important;
+      .header {
+        display: none !important;
+      }
+    }
+  }
+}
+

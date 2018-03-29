@@ -1,0 +1,33 @@
+.wrap{
+  .row{
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .page-info{
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 10%;
+    p:first-of-type{
+     font-size: 40px;
+      color: #e74c3c;
+    }
+    h1{
+      margin-top: 10px;
+      font-size: 60px;
+    }
+    p.header-txt{
+      font-size: 25px;
+      color: #767676;
+      margin-top: 1.0em;
+    }
+    p:last-of-type{
+      font-size: 18px;
+      margin-top: 30px;
+    }
+    .btn-back{
+      margin-top: 2.5em;
+      padding: 10px 30px;
+      border-radius: 30px;
+    }
+  }
+}

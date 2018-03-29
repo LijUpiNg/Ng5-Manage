@@ -1,0 +1,196 @@
+@import "../../../../assets/scss/base";
+
+// 侧边栏动画切换
+@mixin animation-refresh{
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.nav-wrapper{
+  position: fixed;
+  top:52px;
+  bottom: 0;
+  z-index: 101;
+  width: 240px;
+  height: 100%;
+  background-color: $nav-bg-color;
+  .sidebar {
+    background-color: $nav-bg-color;
+    .header {
+      height: 65px;
+      font-size: 15px;
+      padding: 25px 0 10px 46px;
+      letter-spacing: .07em;
+      font-weight: 300;
+      color: #fff;
+      background-color: $nav-list-item-a-bg-color;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+      &:hover {
+        cursor: pointer;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .panel-group {
+      width: 240px;
+      position: fixed;
+      overflow: auto;
+      top: 52px;
+      height: 93%;
+      box-shadow: 5px 0 6px 0 rgba(0,0,0,.1);
+      background-color: $nav-bg-color;
+      // 自定义浏览器滚动条样式-Google
+      &::-webkit-scrollbar {
+        width: 6px;
+        background-color: $nav-list-item-bg-color;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #000000;
+      }
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: $nav-list-item-bg-color;
+      }
+      // 自定义浏览器滚动条样式-IE
+      /*三角箭头的颜色*/
+      scrollbar-arrow-color: #000000;
+      /*滚动条滑块按钮的颜色*/
+      scrollbar-face-color: #000000;
+      /*滚动条整体颜色*/
+      scrollbar-highlight-color: #222f3c;
+      /*滚动条阴影*/
+      scrollbar-shadow-color: #222f3c;
+      /*滚动条轨道颜色*/
+      scrollbar-track-color: #222f3c;
+      .active {
+        a {
+          background-color: $nav-list-item-a-bg-color !important;
+          border-left: 3px solid $border-left-color !important;
+        }
+        .list-group-item {
+          background-color: $nav-list-item-a-bg-color !important;
+          color: #fff !important;
+          border-left: 3px solid $border-left-color !important;
+        }
+      }
+      .panel {
+        background-color: $nav-list-item-bg-color;
+        border: none;
+        margin-top: 0;
+        .list-group-item {
+          padding: 12px 15px;
+          border: none;
+          border-radius: 0px;
+          font-size: 15px;
+          background-color: $nav-list-item-bg-color;
+          color: $nav-list-item-font-color;
+          border-left: 3px solid $nav-list-item-a-bg-color;
+          &:hover {
+            color: #fff;
+            background-color: $nav-list-item-a-bg-color;
+          }
+          .fa-plus{
+            -webkit-animation: refresh 1 .3s ease;
+            animation: refresh 1 .3s ease;
+          }
+          .fa-minus{
+            -webkit-animation: refresh2 1 .3s ease;
+            animation: refresh2 1 .3s ease;
+          }
+          .arrow {
+            float: right;
+          }
+          .icon {
+            width: 25px;
+          }
+        }
+        .list-a {
+          list-style: none;
+          padding: 0;
+          font-weight: 400;
+          li {
+            width: 100%;
+            height: 44px;
+            background-color: $nav-list-item-a-bg-color;
+            color: $nav-list-item-font-color;
+            .active {
+              background-color: $nav-list-item-a-bg-color;
+              color: #fff;
+              border-left: 3px solid $border-left-color;
+            }
+            a {
+              width: 100%;
+              display: block;
+              text-decoration: none;
+              line-height: 44px;
+              padding-left: 44px;
+              font-size: 15px;
+              color: $nav-list-item-font-color;
+              border-left: 3px solid $nav-list-item-a-bg-color;
+              &:hover {
+                color: #fff;
+                background-color: $nav-list-item-a-bg-color;
+              }
+              .icon {
+                width: 25px;
+              }
+            }
+          }
+        }
+      }
+      .footer {
+        height: 100px;
+        h1 {
+          font-size: 13px;
+          color: #696d71;
+          text-align: center;
+          padding-top: 60px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px ){
+  .nav-wrapper{
+    position: relative;
+    top: 54px;
+    left: 0;
+    padding-top: 0;
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+}
+
+@keyframes refresh {
+  @include animation-refresh;
+}
+@keyframes refresh2 {
+  @include animation-refresh;
+}
+
+@-webkit-keyframes refresh {
+  @include animation-refresh;
+}
+
+@-webkit-keyframes refresh2 {
+  @include animation-refresh;
+}
+
+@-o-keyframes refresh {
+  @include animation-refresh;
+}
+
+@-o-keyframes refresh2 {
+  @include animation-refresh;
+}
+

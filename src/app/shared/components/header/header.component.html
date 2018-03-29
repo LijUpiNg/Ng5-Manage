@@ -1,0 +1,19 @@
+<div class="nav-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <span class="fa fa-dedent fa-fw text-secondary" id="toggle-navbar" (click)="ToggleNavbar()"></span>
+    <a class="navbar-brand" id="header-logo" [routerLink]="['/']"><img src="../../../../assets/images/sun.png" class="logo"> Ng5-Manage</a>
+
+    <div class="dropdown user" ngbDropdown>
+      <div class="drop-toggle" ngbDropdownToggle>
+        <img class="rounded-circle user-img" src="../../../../assets/images/user-header.png" alt="user">
+        <span>{{ username || 'Username' }}</span>
+      </div>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <a class="dropdown-item" href="#" [routerLink]="['/Profile']" title="查看个人资料">
+          <i class="fa fa-user-circle"></i> &nbsp;个人资料</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item exit" [routerLink]="['/Account/Logout']" title="注销用户"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+      </div>
+    </div>
+  </nav>
+</div>

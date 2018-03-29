@@ -1,0 +1,110 @@
+<div class="wrap">
+  <div class="wrap-header">
+    <h1><i class="fa fa-list-ul"></i> 表格一</h1>
+  </div>
+  <div class="path-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']"><span class="fa fa-home"></span> Home</a></li>
+      <li class="breadcrumb-item">表格</li>
+      <li class="breadcrumb-item active">表格一</li>
+    </ol>
+  </div>
+
+  <div class="container-fluid">
+    <div class="table-container">
+      <div class="search">
+        <form class="form-inline">
+          <div class="form-group">
+            <label> 编号：<input type="text" class="form-control" placeholder="请输入编号"></label>
+          </div>
+          <div class="form-group">
+            <label> 名称：<input type="text" class="form-control" placeholder="请输入商户编号"></label>
+          </div>
+          <div class="form-group"> 状态：<select name="" id="status" class="form-control">
+            <option value="">所有状态</option>
+            <option value="" selected>启用</option>
+            <option value="">禁用</option>
+          </select>
+          </div>
+          <div class="form-group"> 审核状态：<select name="" id="review-status" class="form-control">
+            <option value="">所有状态</option>
+            <option value="" selected>已审核</option>
+            <option value="">完善资料</option>
+            <option value="">待审核</option>
+            <option value="">未通过</option>
+          </select>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-warning"><i class="fa fa-search"></i> 搜索</button>
+          </div>
+        </form>
+      </div>
+      <div class="table">
+        <ngx-datatable class="material"
+                       [headerHeight]="50"
+                       [rows]="list_rows"
+                       [columns]="list_columns"
+                       [columnMode]="'force'"
+                       [scrollbarH]="true"
+                       [footerHeight]="'60'"
+                       [rowHeight]="'auto'"
+                       [loadingIndicator]="list_loading"
+                       [sortType]="'multi'"
+                       [externalPaging]="false"
+                       [externalSorting]="false"
+                       [count]="list_count"
+                       [offset]="list_page.index - 1"
+                       [limit]="list_page.count">
+          <ngx-datatable-footer>
+            <ng-template
+              ngx-datatable-footer-template
+              let-rowCount="rowCount"
+              let-pageSize="pageSize"
+              let-curPage="curPage"
+              let-offset="offset">
+              <div class="tb-footer">
+                <div class="tb-footer-l">
+                  总数: {{rowCount}} |
+                  单页数量: {{pageSize}} |
+                  总页数: {{rowCount / pageSize + 0.5 | number: '1.0-0'}}
+                </div>
+                <div  class="tb-footer-r">
+                  <ngb-pagination [collectionSize]="list_count" [(page)]="list_page.index" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+                  <div class="tb-footer-p" *ngIf="rowCount / pageSize > 5">跳转到<input type="text">页</div>
+                </div>
+              </div>
+            </ng-template>
+          </ngx-datatable-footer>
+        </ngx-datatable>
+
+        <ng-template #template_status let-row="row" let-value="value">
+          <div class="btn-group btn-group-sm" role="group">
+            <span class="badge badge-success" *ngIf="row['status']==0">启用</span>
+            <span class="badge badge-danger" *ngIf="row['status']==1">禁用</span>
+            &nbsp;<span class="badge badge-warning">已审核</span>
+          </div>
+        </ng-template>
+        <ng-template #template_project let-row="row" let-value="value">
+          <div class="btn-group btn-group-sm" role="group">
+            <button class="btn btn-link btn-sm" (click)="goVendorAccountList(+row['id'])">账户</button>
+            <button class="btn btn-link btn-sm" (click)="goVendorAppList(+row['id'])">应用</button>
+            <button class="btn btn-link btn-sm" (click)="goVendorBankCardList(+row['id'])">银行卡</button>
+            <button class="btn btn-link btn-sm" (click)="goVendorPlatformConfig(+row['id'])">配置</button>
+          </div>
+        </ng-template>
+        <ng-template #template_recharge let-row="row" let-value="value">
+          <div class="btn-group btn-group-sm" role="group">
+            <button class="btn btn-primary" (click)="goVendorRecharge(+row['id'])">充值</button>
+          </div>
+        </ng-template>
+        <ng-template #template_op let-row="row" let-value="value">
+          <div class="btn-group btn-group-sm table-btn-group" role="group">
+            <button class="btn btn-info btn-sm" (click)="onRowDetail(+row['id'])" title="详情"><i class="fa fa-info"></i></button>
+            <button class="btn btn-success btn-sm" (click)="onRowEdit(+row['id'])" title="编辑"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-danger btn-sm" (click)="onRowDelete(+row['id'])"  title="删除"><i class="fa fa-trash"></i></button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

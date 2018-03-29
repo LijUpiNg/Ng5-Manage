@@ -1,0 +1,50 @@
+@import "../../../assets/scss/base";
+@import "../../../assets/scss/conrainer-header";
+@import "../../../assets/scss/modal";
+.container-fluid{
+  min-height: 300px;
+  .git-info {
+    width: 100%;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    background-color: #fff;
+    .main-time-line {
+      margin: 10px 0 0 20px;
+      padding-right: 10px;
+      .time-line {
+        box-shadow: 0 2px 4px #eee;
+        margin-top: 20px;
+        padding: 5px 15px;
+        border-bottom: 1px solid #e7e7e7;
+        border-top: 1px solid #e7e7e7;
+        border-right: 1px solid #e7e7e7;
+        .time-line-date {
+          margin-bottom: 10px;
+        }
+        .time-line-info {
+          margin-left: 20px;
+          margin-bottom: 10px;
+          b.title{
+            color: $theme-color;
+          }
+          span.txt {
+            color: $font-simple-color;
+            margin-left: 20px;
+          }
+        }
+        &:nth-child(odd){
+          border-left: 8px solid $theme-color;
+          &:hover{
+            background-color: #edf8ff;
+          }
+        }
+        &:nth-child(even){
+          border-left: 8px solid #f0ad4e;
+          &:hover{
+            background-color: #fff9f0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<!--<nav class="nav-wrapper" >-->
+  <!--<div class="sidebar">-->
+    <!--<ul class="panel-group list-group" id="sidebar" aria-multiselectable="true">-->
+      <!--<li class="panel list-menu" *ngFor="let menu of menus" [ngClass]="{active:menu.isActive}">-->
+        <!--<a class="list-group-item collapsed" (click)="changeArrow(menu.index, menu.routerLink)"  data-toggle="collapse" data-parent="#sidebar" href="#{{menu.id}}" aria-expanded="true">-->
+          <!--<i class="fa icon" ngClass="{{menu.icon}}"></i> {{menu.item}}-->
+          <!--<i class="fa arrow" [ngClass]="!menu.isActive?'fa-plus':'fa-minus'" *ngIf="menu.list != ''" ></i>-->
+        <!--</a>-->
+        <!--<ul class="panel-collapse collapse list-a" id="{{menu.id}}">-->
+          <!--<li *ngFor="let list of menu.list">-->
+            <!--<a  [routerLink]="list.routerLink" [ngClass]="{active: list.isActive}" (click)="changeClass(menu.index,list.id)"> <i class="fa icon" ngClass="{{list.icon}}"></i>{{list.item}}</a>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+<!--</nav>-->
+
+
+<nav class="nav-wrapper" >
+  <div class="sidebar">
+    <ul class="panel-group list-group" id="sidebar">
+      <li class="panel list-menu" *ngFor="let menu of menus" [ngClass]="{active:menu.isActive}">
+        <a class="list-group-item collapsed" (click)="changeArrow(menu.index, menu.routerLink)">
+          <i class="fa icon" ngClass="{{menu.icon}}" ></i> {{menu.item}}
+          <i class="fa arrow" [ngClass]="!menu.isActive?'fa-plus':'fa-minus'" *ngIf="menu.list != ''" ></i>
+        </a>
+        <ul class="panel-collapse collapse list-a" id="{{menu.id}}" [ngbCollapse]="!menu.isActive">
+          <li *ngFor="let list of menu.list">
+            <a [routerLink]="list.routerLink" [ngClass]="{active: list.isActive}" (click)="changeClass(menu.index,list.id)"> <i class="fa icon" ngClass="{{list.icon}}"></i>{{list.item}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

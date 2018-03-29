@@ -1,0 +1,28 @@
+<div class="wrap">
+  <div class="wrap-header">
+    <h1><i class="fa fa-dashboard"></i> 首页</h1>
+  </div>
+  <div class="path-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']"><span class="fa fa-home"></span> Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">管理首页</li>
+    </ol>
+  </div>
+  <div class="container-fluid">
+    <div class="git-info">
+      <div class="main-time-line">
+        <div class="time-line" *ngFor="let timeline of timeLine">
+          <div class="time-line-date">
+            <span>{{timeline.time.date}}</span>
+            <span>{{timeline.time.times}}</span>
+          </div>
+
+          <div class="time-line-info">
+            <b class="title">添加IP</b>
+            <span class="txt">{{timeline.info}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

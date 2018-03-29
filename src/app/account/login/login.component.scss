@@ -1,0 +1,124 @@
+$login-font: #fff;
+input {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  -webkit-appearance: none;
+}
+
+input::-webkit-input-placeholder {
+  color: $login-font;
+  font-size: 16px;
+}
+
+input:-moz-placeholder {
+  color: $login-font;
+  font-size: 16px;
+}
+
+input::-moz-placeholder {
+  color: $login-font;
+  font-size: 16px;
+}
+
+input:-ms-input-placeholder {
+  color: $login-font;
+  font-size: 16px;
+}
+
+.wrap{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: url("../../../assets/images/bg.jpg") center center no-repeat;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-size: 100%;
+  .wrap-bg{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top right, rgba(60, 119, 197, 0.48), rgba(119, 229, 255, 0.67));;
+    background:-moz-linear-gradient(to top right, rgba(60, 119, 197, 0.48), rgba(119, 229, 255, 0.67));
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(60, 119, 197, 0.48)), to(rgba(119, 229, 255, 0.67)));
+    background:-o-linear-gradient(to top right,  rgba(60, 119, 197, 0.48), rgba(119, 229, 255, 0.67));
+    position: relative;
+    .login{
+      width: 400px;
+      margin: 0 auto;
+      padding-top: 120px;
+      form{
+        h1{
+          color: $login-font;
+          font-size: 26px;
+          span{
+            font-size: 18px;
+          }
+        }
+        .form-group{
+          margin-top: 20px;
+          .input-group{
+            border: 2px solid rgba(255, 255, 255, 0.44);
+            padding: 0 10px;
+            border-radius: 5px;
+            .form-control{
+              background-color: rgba(0,0,0,0);
+              height:45px;
+              padding-left: 0;
+              box-shadow: none;
+              color: $login-font;
+              font-size: 17px;
+            }
+            .input-group-addon{
+              background-color: rgba(0,0,0,0);
+              border: none;
+              color: $login-font;
+              font-size: 17px;
+            }
+          }
+          .login-alert{
+            padding-left: 45px;
+            color: $login-font;
+          }
+        }
+        .btn-login{
+          width: 100%;
+          height: 45px;
+          margin-top: 10px;
+          border-radius: 5px;
+          color: $login-font;
+          font-size: 17px;
+          box-shadow: none;
+          border: none;
+          outline:none;
+        }
+        .btn-disabled{
+          background-color: #ea9e5d;
+          cursor: not-allowed;
+        }
+        .btn-active{
+          cursor: pointer;
+          background-color: rgba(239, 186, 74, 0.87);
+          box-shadow: 2px 2px 4px #477d84;
+        }
+      }
+    }
+    .footer{
+      position: absolute;
+      bottom: 0;
+      text-align: right;
+      width: 100%;
+      padding: 10px 20px;
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  .wrap{
+    .wrap-bg{
+      .login{
+        padding-top: 50px;
+        width: 310px !important;
+      }
+    }
+  }
+}

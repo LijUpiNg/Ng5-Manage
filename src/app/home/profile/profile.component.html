@@ -1,0 +1,188 @@
+<div class="wrap">
+  <div class="wrap-header">
+    <h1><i class="fa fa-tasks"></i> 个人资料</h1>
+  </div>
+  <div class="path-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']"><span class="fa fa-home"></span> Home</a></li>
+      <li class="breadcrumb-item active">个人资料</li>
+    </ol>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-xs-12">
+        <!--个人基本信息-->
+        <div class="user-info info">
+          <h2><i class="fa fa-address-card"></i> 个人资料</h2>
+          <div class="user-base-info">
+            <div class="list-group">
+              <div class="list-group-item">
+                <b>账户编号</b>
+                <span>001</span>
+              </div>
+              <div class="list-group-item">
+                <b>登录账号</b>
+                <span>xiaoju</span>
+              </div>
+              <div class="list-group-item">
+                <b>姓名</b>
+                <span>小菊</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bind-info info">
+          <h2><i class="fa fa-ticket"></i> 账号绑定</h2>
+          <div class="bind-info-btn">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action justify-content-between align-items-center"><i class="fa fa-mobile"></i> 微博绑定 <span class="badge badge-warning">未绑定</span></button>
+              <button type="button" class="list-group-item list-group-item-action"><i class="fa fa-envelope"></i> 邮箱绑定 <span class="badge badge-warning">未绑定</span></button>
+              <button type="button" class="list-group-item list-group-item-action"><i class="fa fa-mobile"></i> 手机绑定
+                <a href="">188****6147</a> <span class="badge badge-secondary">禁用</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-xs-12">
+        <div class="info-tab">
+          <ngb-tabset [justify]="'justified'">
+            <ngb-tab title="登录信息">
+              <ng-template ngbTabContent>
+                <div class="login-info">
+                  <div class="main-time-line">
+                  <div class="time-line" *ngFor="let timeline of timeLine">
+                    <div class="time-line-date">
+                      <span>{{timeline.time.date}}</span>
+                      <span>{{timeline.time.times}}</span>
+                    </div>
+
+                    <div class="time-line-info">
+                      <b>添加IP</b>
+                      <span>{{timeline.info}}</span>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="修改密码">
+              <ng-template ngbTabContent>
+                <div class="modify-pwd">
+                  <form #form="ngForm" (ngSubmit)="form.form.valid" novalidate>
+                  <div class="form-group" [ngClass]="{ 'has-error': form.submitted && !oldPwd.valid }">
+                    <label for="oldPwd">当前密码</label>
+                    <input type="password" required name="oldPwd" id="oldPwd" #oldPwd="ngModel" class="form-control"
+                           [(ngModel)]="oldPwd1" placeholder="请输入当前密码" minlength="3">
+                    <div *ngIf="oldPwd.errors && (oldPwd.dirty || oldPwd.touched)" class="alert alert-danger">
+                      <div [hidden]="!oldPwd.errors.required">
+                        原密码必填
+                      </div>
+                      <div [hidden]="!oldPwd.errors.minlength">
+                        原密码长度必须大于3
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <label for="newPwd">新密码</label>
+                    <input type="password" id="newPwd" placeholder="输入新密码" class="form-control" required minlength="3"
+                           name="newPwd" [(ngModel)]="passwordCurrent"
+                           #newPwd="ngModel">
+                    <div *ngIf="newPwd.errors && (newPwd.dirty || newPwd.touched)" class="alert alert-danger">
+                      <div [hidden]="!newPwd.errors.required">
+                        新密码必填
+                      </div>
+                      <div [hidden]="!newPwd.errors.minlength">
+                        新密码长度必须大于3
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <label for="confirmpwd">确认密码</label>
+                    <input type="password" placeholder="输入确认密码" class="form-control" required name="confirmpwd"
+                           id="confirmpwd" [(ngModel)]="confirmPwd" #confirmpwd="ngModel" minlength="3">
+                    <div *ngIf="confirmpwd.errors && (confirmpwd.dirty || confirmpwd.touched)" class="alert alert-danger">
+                      <div [hidden]="!confirmpwd.errors.required">
+                        确认密码必填
+                      </div>
+                      <div [hidden]="!confirmpwd.errors.minlength">
+                        密码与第一次输入不一样
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <input type="reset" value="重置" class="btn btn-default">
+                    <button class="btn btn-primary" [disabled]="!form.form.valid">
+                      提交
+                    </button>
+                  </div>
+                </form>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+          <!--<ul class="nav nav-tabs nav-justified" role="tablist">-->
+            <!--<li class="nav-item"><a href="#login-info" class="nav-link active" data-toggle="tab" role="tab" aria-controls="login-info" aria-selected="true">登录信息</a></li>-->
+            <!--<li class="nav-item"><a href="#modify-pwd" class="nav-link" data-toggle="tab" role="tab" aria-controls="modify-pwd" aria-selected="true">修改密码</a></li>-->
+          <!--</ul>-->
+          <!--<div class="tab-content">-->
+            <!--<div class="tab-pane show active login-info" id="login-info">-->
+             <!---->
+            <!--</div>-->
+            <!--<div class="tab-pane modify-pwd" id="modify-pwd">-->
+              <!--<form #form="ngForm" (ngSubmit)="form.form.valid" novalidate>-->
+                <!--<div class="form-group" [ngClass]="{ 'has-error': form.submitted && !oldPwd.valid }">-->
+                  <!--<label for="oldPwd">当前密码</label>-->
+                  <!--<input type="password" required name="oldPwd" id="oldPwd" #oldPwd="ngModel" class="form-control"-->
+                         <!--[(ngModel)]="oldPwd1" placeholder="请输入当前密码" minlength="3">-->
+                  <!--<div *ngIf="oldPwd.errors && (oldPwd.dirty || oldPwd.touched)" class="alert alert-danger">-->
+                    <!--<div [hidden]="!oldPwd.errors.required">-->
+                      <!--原密码必填-->
+                    <!--</div>-->
+                    <!--<div [hidden]="!oldPwd.errors.minlength">-->
+                      <!--原密码长度必须大于3-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group has-feedback">-->
+                  <!--<label for="newPwd">新密码</label>-->
+                  <!--<input type="password" id="newPwd" placeholder="输入新密码" class="form-control" required minlength="3"-->
+                         <!--name="newPwd" [(ngModel)]="passwordCurrent"-->
+                         <!--#newPwd="ngModel">-->
+                  <!--<div *ngIf="newPwd.errors && (newPwd.dirty || newPwd.touched)" class="alert alert-danger">-->
+                    <!--<div [hidden]="!newPwd.errors.required">-->
+                      <!--新密码必填-->
+                    <!--</div>-->
+                    <!--<div [hidden]="!newPwd.errors.minlength">-->
+                      <!--新密码长度必须大于3-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group has-feedback">-->
+                  <!--<label for="confirmpwd">确认密码</label>-->
+                  <!--<input type="password" placeholder="输入确认密码" class="form-control" required name="confirmpwd"-->
+                         <!--id="confirmpwd" [(ngModel)]="confirmPwd" #confirmpwd="ngModel" minlength="3">-->
+                  <!--<div *ngIf="confirmpwd.errors && (confirmpwd.dirty || confirmpwd.touched)" class="alert alert-danger">-->
+                    <!--<div [hidden]="!confirmpwd.errors.required">-->
+                      <!--确认密码必填-->
+                    <!--</div>-->
+                    <!--<div [hidden]="!confirmpwd.errors.minlength">-->
+                      <!--密码与第一次输入不一样-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="text-center">-->
+                  <!--<input type="reset" value="重置" class="btn btn-default">-->
+                  <!--<button class="btn btn-primary" [disabled]="!form.form.valid">-->
+                    <!--提交-->
+                  <!--</button>-->
+                <!--</div>-->
+              <!--</form>-->
+            <!--</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

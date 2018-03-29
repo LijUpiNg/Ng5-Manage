@@ -1,0 +1,16 @@
+@import "../../../../assets/scss/base";
+@import "../../../../assets/scss/conrainer-header";
+@import "../../../../assets/scss/modal";
+
+.wrap{
+  .container-fluid{
+    .form-group{
+      width: 25%;
+      label{
+        display: block;
+        .date-range{
+        }
+      }
+    }
+  }
+}

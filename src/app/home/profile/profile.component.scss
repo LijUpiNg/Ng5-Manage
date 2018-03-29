@@ -1,0 +1,126 @@
+@import "../../../assets/scss/base";
+@import "../../../assets/scss/conrainer-header";
+.wrap {
+  .info {
+    margin-top: 10px;
+    border: 1px solid #ededed;
+    box-shadow: 0 -5px 0 0 $theme-color;
+    border-top: 4px solid $theme-color;
+    background-color: #fff;
+  }
+  .user-info {
+    box-shadow: 0 1px 2px #d6d3d3;
+    margin-top: 20px;
+    h2 {
+      margin-left: 15px;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      font-size: 22px;
+      i {
+        color: $theme-color;
+      }
+    }
+    .user-base-info {
+      .list-group {
+        .list-group-item {
+          padding: 15px;
+          border-left: none;
+          border-bottom: none;
+          border-right: none;
+          border-radius: 0;
+
+          &:nth-child(odd) {
+            background-color: #f2f2f2;
+          }
+
+          & > b {
+            display: inline-block;
+            width: 49%;
+          }
+          & > span {
+            display: inline-block;
+            width: 49%;
+          }
+        }
+      }
+    }
+  }
+
+  .bind-info {
+    margin-top: 40px;
+    box-shadow: 0 2px 4px #eee;
+    h2 {
+      margin-left: 15px;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      font-size: 22px;
+      i {
+        color: $theme-color;
+      }
+    }
+    .bind-info-btn {
+      border-top: 1px solid #ddd;
+      padding: 20px 15px;
+      button {
+        margin-right: 8px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .info-tab {
+    margin-top: 20px;
+    .tab-content{
+      background-color: #fff;
+      margin-top: 0;
+      padding-top: 10px;
+      padding-right: 10px;
+    }
+    .modify-pwd {
+      form {
+        padding: 20px 30px 50px 20px;
+        background-color: #fff;
+        .form-group {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .login-info {
+    width: 100%;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    background-color: #fff;
+    .main-time-line {
+      margin: 10px 0 0 20px;
+      padding-right: 10px;
+      .time-line {
+        box-shadow: 0 2px 4px #eee;
+        margin-top: 20px;
+        padding: 5px 15px;
+        border-bottom: 1px solid #e7e7e7;
+        border-top: 1px solid #e7e7e7;
+        border-right: 1px solid #e7e7e7;
+        .time-line-date {
+          margin-bottom: 10px;
+        }
+        .time-line-info {
+          margin-left: 20px;
+          margin-bottom: 10px;
+
+          span {
+            color: $theme-color;
+            margin-left: 20px;
+          }
+        }
+        &:nth-child(odd){
+          border-left: 8px solid $theme-color;
+        }
+        &:nth-child(even){
+          border-left: 8px solid #f0ad4e;
+        }
+      }
+    }
+  }
+}

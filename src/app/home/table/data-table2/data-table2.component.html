@@ -1,0 +1,162 @@
+<div class="wrap">
+  <div class="wrap-header">
+    <h1><i class="fa fa-list"></i> 表格二</h1>
+  </div>
+  <div class="path-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']"><span class="fa fa-home"></span> Home</a></li>
+      <li class="breadcrumb-item">表格</li>
+      <li class="breadcrumb-item active">表格二</li>
+    </ol>
+  </div>
+
+  <div class="container-fluid">
+    <div class="table-container">
+      <div class="search">
+        <form class="form-inline">
+          <div class="form-group">
+            <label>编号：<input type="text" class="form-control" placeholder="请输入编号"></label>
+          </div>
+          <div class="form-group">
+            <label>商户编号：<input type="text" class="form-control" placeholder="请输入商户编号"></label>
+          </div>
+          <div class="form-group">
+            <label>应用编号：<input type="text" class="form-control" placeholder="请输入应用编号"></label>
+          </div>
+          <div class="form-group">
+            <label>网关编号：<input type="text" class="form-control" placeholder="请输入网关编号"></label>
+          </div>
+          <div class="form-group">
+            <label>应用单号：<input type="text" class="form-control" placeholder="请输入应用单号"></label>
+          </div>
+          <div class="form-group">
+            <label>时间：<input type="text" class="form-control date-range" id="startEndTime" name="startEndTime"></label>
+          </div>
+          <div class="form-group">
+            类型：
+            <select name="" id="pay-type"  class="form-control">
+              <option value="" selected>支付类型</option>
+              <option value="">网银</option>
+              <option value="">支付宝</option>
+              <option value="">微信</option>
+              <option value="">快捷</option>
+            </select>
+          </div>
+          <div class="form-group">
+            状态：
+            <select name="" id="pay-status"  class="form-control">
+              <option value="" selected>支付状态</option>
+              <option value="">待支付</option>
+              <option value="">支付成功</option>
+              <option value="">支付失败</option>
+            </select>
+
+            <select name="" id="synchro-status"  class="form-control">
+              <option value="" selected>同步状态</option>
+              <option value="">待同步</option>
+              <option value="">同步成功</option>
+              <option value="">同步失败</option>
+            </select>
+
+            <select name="" id="push-status"  class="form-control">
+              <option value="" selected>推送状态</option>
+              <option value="">待推送</option>
+              <option value="">推送成功</option>
+              <option value="">推送失败</option>
+            </select>
+
+            <select name="" id="settle-status"  class="form-control">
+              <option value="" selected>结算状态</option>
+              <option value="">结算支付</option>
+              <option value="">结算成功</option>
+              <option value="">结算失败</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-warning"><i class="fa fa-search"></i> 搜索</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-secondary" (click)="reset()">重置</button>
+          </div>
+        </form>
+      </div>
+      <div class="table">
+        <ngx-datatable class="material"
+                       [headerHeight]="50"
+                       [rows]="list_rows"
+                       [columns]="list_columns"
+                       [columnMode]="'force'"
+                       [scrollbarH]="true"
+                       [footerHeight]="'60'"
+                       [rowHeight]="'auto'"
+                       [loadingIndicator]="list_loading"
+                       [sortType]="'multi'"
+                       [externalPaging]="false"
+                       [count]="list_count"
+                       [offset]="list_page.index-1"
+                       [limit]="list_page.count">
+          <ngx-datatable-footer>
+            <ng-template
+              ngx-datatable-footer-template
+              let-rowCount="rowCount"
+              let-pageSize="pageSize"
+              let-curPage="curPage"
+              let-offset="offset">
+              <div class="tb-footer">
+                <div class="tb-footer-l">
+                  总数: {{rowCount}} |
+                  单页数量: {{pageSize}} |
+                  总页数: {{rowCount / pageSize + 0.5 | number: '1.0-0'}} |
+                  当前页：{{curPage}}
+                </div>
+                <div  class="tb-footer-r">
+                  <ngb-pagination [collectionSize]="list_count" [(page)]="list_page.index" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+                  <div class="tb-footer-p" *ngIf="rowCount / pageSize > 5">跳转到<input type="text">页</div>
+                </div>
+              </div>
+            </ng-template>
+          </ngx-datatable-footer>
+        </ngx-datatable>
+
+        <ng-template #template_status let-row="row" let-value="value">
+          <div class="btn-group" role="group">
+            <span class="badge badge-success" *ngIf="row['status']==0">启用</span>
+            <span class="badge badge-danger" *ngIf="row['status']==1">禁用</span>
+          </div>
+        </ng-template>
+        <ng-template #template_pull let-row="row" let-value="value">
+          <div class="btn-group" role="group">
+          <a>拉取</a> / <a>推送</a>
+          </div>
+        </ng-template>
+        <ng-template #template_upper let-row="row" let-value="value">
+          <div class="btn-group btn-group-sm" role="group">
+            <button class="btn btn-link" title="查看上级网关订单" (click)="open(content)">上级</button>
+          </div>
+        </ng-template>
+        <ng-template #template_op let-row="row" let-value="value">
+          <div class="btn-group btn-group-sm table-btn-group" role="group">
+            <button class="btn btn-info btn-sm" (click)="onRowDetail(+row['id'])" title="详情"><i class="fa fa-info"></i></button>
+            <button class="btn btn-success btn-sm" (click)="onRowEdit(+row['id'])" title="编辑"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-danger btn-sm" (click)="onRowDelete(+row['id'])" title="删除"><i class="fa fa-trash"></i></button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 上级订单列表查询 -->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">上级订单列表查询</h4>
+  </div>
+  <div class="modal-body">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolorem fugit omnis optio velit? Beatae dolores ea esse harum ipsa laboriosam reprehenderit! Debitis hic, neque quaerat quibusdam sit veniam voluptates!</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-modal-close" (click)="d('Cross click')"><span class="fa fa-times"></span> 取消</button>
+    <button type="submit" class="btn btn-modal-save" (click)="c('Close click')"><span class="fa fa-check"></span> 确定</button>
+  </div>
+</ng-template>

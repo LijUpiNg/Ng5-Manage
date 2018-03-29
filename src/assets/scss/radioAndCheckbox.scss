@@ -1,0 +1,279 @@
+/*
+示例：
+  一行一个checkbox的模板
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value=""><span class="checkbox-material"><span class="check"></span></span>
+          Option one is this and that—be sure to include why it's great
+        </label>
+      </div>
+
+  一行多个checkbox的模板
+      <div class="checkbox">
+        <label class="checkbox-inline">
+          <input type="checkbox"  value="option1">
+          <span class="checkbox-material"><span class="check"></span></span> 1
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox"  value="option1">
+          <span class="checkbox-material"><span class="check"></span></span> 2
+        </label>
+      </div>
+
+  一行一个radio的模板
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" value="option1">
+          <span class="circle"></span><span class="check"></span>
+          Option one is this and that—be sure to include why it's great
+        </label>
+      </div>
+
+
+  一行多个radio的模板
+      <div class="radio">
+        <label class="radio-inline">
+          <input type="radio" name="accountType"  value="0" checked>
+          <span class="circle"></span><span class="check"></span> 代理
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="accountType"  value="1">
+          <span class="circle"></span><span class="check"></span> 会员
+        </label>
+      </div>
+ */
+
+
+/* 宏定义 */
+// inline样式
+@mixin inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 0;
+  margin-right: 8px;
+  margin-bottom: 0;
+  font-weight: 400;
+  vertical-align: middle;
+  cursor: pointer;
+}
+// label样式
+@mixin label {
+  font-size: 13px;
+  line-height: 1.42857;
+  color: $label-color;
+  font-weight: 600;
+}
+
+// radio
+// 一行多个radio
+.form-horizontal {
+  .radio-inline {
+    padding-top: 0px;
+  }
+  .checkbox-inline {
+    padding-top: 0px;
+  }
+}
+label.radio-inline {
+  @include label;
+  @include inline;
+  padding-left: 30px;
+  input[type=radio] {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    &:checked {
+      &~.circle {
+        opacity: 1;
+        border-color: $bg-info;
+      }
+      &~.check {
+        background-color: $bg-info;
+        transform: scale3d(.55,.55,1);
+        opacity: 1;
+      }
+    }
+  }
+  span {
+    display: block;
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    transition-duration: .2s;
+  }
+  .circle {
+    border: 2px solid $radio-boder-color;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+  }
+  .check {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: $bg-info;
+    transform: scale3d(0,0,0);
+  }
+}
+
+// 一行一个radio
+.radio {
+  @include label;
+  padding-left: 20px;
+  position: relative;
+  input[type=radio] {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    &:checked {
+      &~.circle {
+        opacity: 1;
+        border-color: $bg-info;
+      }
+      &~.check {
+        background-color: $bg-info;
+        transform: scale3d(.55,.55,1);
+        opacity: 1;
+      }
+    }
+  }
+  span {
+    display: block;
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    transition-duration: .2s;
+  }
+  .circle {
+    border: 2px solid $radio-boder-color;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+  }
+  .check {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: $bg-info;
+    transform: scale3d(0,0,0);
+  }
+}
+
+
+// checkbox
+// 一行多个
+label.checkbox-inline {
+  @include label;
+  @include inline;
+  input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    margin: 0;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    left: 0;
+    pointer-events: none;
+    &:checked {
+      &+.checkbox-material{
+        .check {
+          color: $bg-info;
+          border-color: $bg-info;
+          &:before {
+            color: $bg-info;
+            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
+          }
+        }
+      }
+    }
+  }
+  .checkbox-material {
+    vertical-align: middle;
+    position: relative;
+    top: 3px;
+    padding-right: 7px;
+    .check {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(165,181,203,.53);
+      border-radius: 2px;
+      overflow: hidden;
+      //z-index: 1;
+      &:before {
+        position: absolute;
+        content: "";
+        transform: rotate(45deg);
+        display: block;
+        margin-top: -4px;
+        margin-left: 6px;
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+}
+
+// 一行一个
+.checkbox {
+  position: relative;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  label {
+    @include label;
+    input[type=checkbox] {
+      opacity: 0;
+      position: absolute;
+      margin: 0;
+      z-index: 0;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      left: 0;
+      pointer-events: none;
+      &:checked {
+        &+.checkbox-material{
+          .check {
+            color: $bg-info;
+            border-color: $bg-info;
+            &:before {
+              color: $bg-info;
+              box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
+            }
+          }
+        }
+      }
+    }
+    .checkbox-material {
+      vertical-align: middle;
+      position: relative;
+      top: 3px;
+      padding-right: 7px;
+      .check {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(165,181,203,.53);
+        border-radius: 2px;
+        overflow: hidden;
+        z-index: 0;
+        &:before {
+          position: absolute;
+          content: "";
+          transform: rotate(45deg);
+          display: block;
+          margin-top: -4px;
+          margin-left: 6px;
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+  }
+}

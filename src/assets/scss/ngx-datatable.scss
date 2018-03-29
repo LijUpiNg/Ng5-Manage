@@ -1,0 +1,128 @@
+.ngx-datatable.material {
+  .datatable-header {
+    height: 50px;
+    padding-top: 8px;
+    .datatable-header-cell {
+      padding: .5rem 1.2rem;
+      font-size: 14px;
+      .datatable-checkbox {
+        padding: 0 0;
+      }
+    }
+  }
+  .datatable-body {
+    min-height: 562px !important;
+    .datatable-body-row {
+      &:hover {
+        .datatable-row-group {
+          background-color: #dfeef7;
+        }
+      }
+      .datatable-body-cell {
+        margin-top: 4px;
+        padding: .5rem 1.2rem;
+        user-select: text;
+      }
+    }
+    datatable-body-row.datatable-body-row.datatable-row-even {
+      background-color: #EEF5F9;
+    }
+  }
+}
+
+ //  data-table 分页样式
+.ngx-datatable.material .datatable-footer .datatable-pager{
+   margin: 0;
+   a {
+     border-radius: 12px;
+     color: #607188;
+     border: none;
+   }
+ }
+
+ngb-pagination .pagination .page-item {
+  &.active {
+    .page-link{
+      background-color: rgba(158, 158, 158, 0.2);
+      font-weight: bold;
+      color: #607188;
+    }
+  }
+  &.disabled{
+    .page-link > span{
+      &:before{
+        color: rgba(0, 0, 0, 0.26);
+      }
+    }
+  }
+  .page-link {
+    height: 20px;
+    min-width: 20px;
+    line-height: 16px;
+    padding: 0 6px;
+    margin: 6px 3px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.54);
+    text-decoration: none;
+    border: none;
+    font-size: .9rem;
+    border-radius: 50%;
+    color: #607188;
+    & > span{
+      width: 0 !important;
+      overflow: hidden;
+      height: 0;
+      line-height: 0;
+      font-size: 0;
+      &:before{
+        color: #607188;
+        font-size: 1.3rem;
+        font-family: "data-table" !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-variant: normal !important;
+        text-transform: none !important;
+        speak: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+  &:first-of-type{
+    .page-link > span{
+      &:before{
+        content: 'r';
+      }
+    }
+  }
+  &:nth-of-type(2){
+    .page-link > span{
+      &:before{
+        content: 'o';
+      }
+    }
+  }
+  &:last-of-type{
+    .page-link > span{
+      &:before{
+        content: 'q';
+      }
+    }
+  }
+  &:nth-last-of-type(2){
+    .page-link > span{
+      &:before{
+        content: 'p';
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  ngb-pagination .pagination .page-item {
+    .page-link {
+      padding: 0 2px;
+      margin: 3px 1px;
+    }
+  }
+}
+
