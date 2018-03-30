@@ -62,6 +62,18 @@ export const menus = [
         isActive: false
       }
     ]
+  },
+  {
+    index: 3,
+    id: 'Ckeditor',
+    item: '富文本编辑',
+    isActive: false,
+    active: false,
+    plusActive: 'active',
+    minusActive: 'inactive',
+    icon: 'fa-pencil',
+    routerLink: '/Ckeditor',
+    list: []
   }
 ];
 

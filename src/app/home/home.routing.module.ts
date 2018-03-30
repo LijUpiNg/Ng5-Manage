@@ -14,7 +14,8 @@ const routes: Routes = [
         { path: '', loadChildren: './index/index.module#IndexModule' },
         { path: 'Profile', loadChildren: './profile/profile.module#ProfileModule' },
         { path: 'Table', loadChildren: './table/table.module#TableModule' },
-        { path: 'Bootstrap', loadChildren: './bootstrap/bootstrap.module#BootstrapModule' }
+        { path: 'Bootstrap', loadChildren: './bootstrap/bootstrap.module#BootstrapModule' },
+        { path: 'Ckeditor', loadChildren: './ckeditor/ckeditor.module#CkeditorModule' }
       ]
     }]
   }
