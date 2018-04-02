@@ -34,6 +34,13 @@ export const menus = [
         routerLink: '/Table/DataTable2',
         icon: 'fa-list',
         isActive: false
+      },
+      {
+        id: 3,
+        item: '表格-行内',
+        routerLink: '/Table/DataTableInline',
+        icon: 'fa-list',
+        isActive: false
       }
     ]
   },
@@ -49,16 +56,16 @@ export const menus = [
     list: [
       {
         id: 1,
-        item: '日期',
-        routerLink: '/Bootstrap/Calendar',
-        icon: 'fa-calendar',
+        item: 'Bootstrap表单',
+        routerLink: '/Bootstrap/Input',
+        icon: 'fa-list',
         isActive: false
       },
       {
         id: 2,
-        item: '按钮',
+        item: '日期',
         routerLink: '/Bootstrap/Calendar',
-        icon: 'fa-list',
+        icon: 'fa-calendar',
         isActive: false
       }
     ]

@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: '', component: TableComponent,
     children: [
       {path: 'DataTable1', loadChildren: './data-table1/data-table1.module#DataTable1Module'},
-      {path: 'DataTable2', loadChildren: './data-table2/data-table2.module#DataTable2Module'}
+      {path: 'DataTable2', loadChildren: './data-table2/data-table2.module#DataTable2Module'},
+      {path: 'DataTableInline', loadChildren: './data-table-inline/data-table-inline.module#DataTableInlineModule'}
     ]
   }
 ];

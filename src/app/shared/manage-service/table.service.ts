@@ -28,4 +28,14 @@ export class TableService {
       })
       .catch((error: any) => Observable.throw(error || 'chargeListServer error'));
   }
+
+  public getDatas3(): Observable<any[]> {
+    return this.http
+      .get('../../assets/data/data-table-inline.json')
+      .map((response: Response) => {
+        const data = response.json();
+        return data;
+      })
+      .catch((error: any) => Observable.throw(error || 'chargeListServer error'));
+  }
 }

@@ -1,0 +1,59 @@
+<div class="wrap">
+  <div class="wrap-header">
+    <h1><i class="fa fa-list"></i> 表格-行内</h1>
+  </div>
+  <div class="path-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']"><span class="fa fa-home"></span> Home</a></li>
+      <li class="breadcrumb-item">表格</li>
+      <li class="breadcrumb-item active">表格行内</li>
+    </ol>
+  </div>
+
+  <div class="container-fluid">
+    <div class="table-container">
+      <div class="table">
+        <ngx-datatable class="material"
+                       [headerHeight]="50"
+                       [rows]="list_rows"
+                       [columns]="list_columns"
+                       [columnMode]="'force'"
+                       [scrollbarH]="true"
+                       [footerHeight]="'70'"
+                       [rowHeight]="'auto'"
+                       [loadingIndicator]="list_loading"
+                       [externalPaging]="false"
+                       [externalSorting]="false"
+                       [count]="list_count">
+          <ngx-datatable-column name="编号">
+            <ng-template ngx-datatable-cell-template let-rowIndex="row['id']" let-value="value" let-row="row">
+            <span title="双击进行编辑" class="item" (dblclick)="editing[row['id'] + '-fan_dian'] = true" *ngIf="!editing[row['id'] + '-fan_dian']">
+              {{row['fan_dian']}}
+            </span>
+              <input autofocus *ngIf="editing[row['id']+ '-fan_dian']" type="text" [value]="row['fan_dian']" class="form-control" (blur)="updateValue($event, row['id'], 'fan_dian')"/>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="地点">
+            <ng-template ngx-datatable-cell-template let-rowIndex="row['id']" let-row="row" let-value="value">
+              <span title="双击进行编辑" class="item" (dblclick)="editing[row['id'] + '-fan_dian'] = true" *ngIf="!editing[row['id'] + '-fan_dian']">
+              {{row['user_count']}}
+            </span>
+              <input autofocus *ngIf="editing[rowIndex+ '-fan_dian']" type="text" [value]="row['user_count']" class="form-control" (blur)="updateValue($event, row['id'], 'user_count')"/>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="操作">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+              <div>
+                <a class="btn-link" *ngIf="!editing[row['id'] + '-fan_dian']" (click)="editing[row['id'] + '-fan_dian'] = true" title="修改">修改</a>
+                <a class="btn-link" *ngIf="editing[row['id'] + '-fan_dian']" (click)="editing[row['id'] + '-fan_dian'] = false" title="修改">取消</a>
+                <span *ngIf="editing[row['id'] + '-fan_dian']"> | </span>
+                <a class="btn-link" *ngIf="editing[row['id'] + '-fan_dian']" (click)="onRowUpdate(+row['id'])" title="修改">保存</a> |
+                <a class="btn-link" (click)="onRowDelete(+row['id'])" title="删除">删除</a>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>

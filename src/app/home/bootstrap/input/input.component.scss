@@ -1,0 +1,14 @@
+@import "../../../../assets/scss/base";
+@import "../../../../assets/scss/conrainer-header";
+@import "../../../../assets/scss/modal";
+@import "../../../../assets/scss/radioAndCheckbox";
+@import "../../../../assets/scss/toggle";
+
+.wrap{
+  .container-fluid{
+    .form-group{
+      background-color: #fff;
+      padding: 20px;
+    }
+  }
+}

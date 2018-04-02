@@ -1,0 +1,106 @@
+/**
+示例：
+ 开关的基本样式： checkbox 需要id绑定label元素，否则无效
+        <input type="checkbox" id="site1" name="switch" class="switch toggle-success">
+        <label class="toggle" for="site1"></label>
+
+ 开关的颜色：toggle-success、toggle-primary(默认)、toggle-info, toggle-default, toggle-warning, toggle-danger
+**/
+
+input[type=checkbox].switch {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  & + .toggle {
+    background-color: #899cb2;
+    display: inline-block;
+    position: relative;
+    height: 15px;
+    width: 35px;
+    border-radius: 15px;
+    vertical-align: middle;
+    margin-bottom: 0;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .4);
+      position: absolute;
+      top: -3px;
+      border: 1px solid #788da5;
+      -webkit-animation: left 1 .3s ease-in-out;
+      animation: left 1 .3s ease-in-out;
+      animation-fill-mode:forwards;
+    }
+
+  }
+  &:checked + .toggle {
+    background-color: $bg-primary;
+    &:after {
+      //left: 15px;
+      -webkit-animation: right 1 .3s ease-in-out;
+      animation: right 1 .3s ease-in-out;
+      animation-fill-mode:forwards;
+    }
+  }
+  &.toggle-primary:checked + .toggle {
+    background-color: $bg-primary;
+  }
+  &.toggle-success:checked + .toggle {
+    background-color: $bg-success;
+
+  }
+  &.toggle-info:checked + .toggle {
+    background-color: $bg-info;
+
+  }
+  &.toggle-warning:checked + .toggle {
+    background-color: $bg-warning;
+
+  }
+  &.toggle-default:checked + .toggle {
+    background-color: rgba(157, 174, 196, .7);
+  }
+  &.toggle-danger:checked + .toggle {
+    background-color: $bg-danger;
+  }
+}
+
+@keyframes right {
+  0% {
+    left:0;
+  }
+  100% {
+    left:15px;
+  }
+}
+
+@keyframes left{
+  0% {
+    left:15px;
+  }
+  100% {
+    left:0;
+  }
+}
+
+@-webkit-keyframes right {
+  0% {
+    left:0;
+  }
+  100% {
+    left:15px;
+  }
+}
+
+@-webkit-keyframes left{
+  0% {
+    left:15px;
+  }
+  100% {
+    left:0;
+  }
+}

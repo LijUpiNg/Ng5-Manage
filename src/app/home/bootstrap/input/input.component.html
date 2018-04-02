@@ -1,0 +1,81 @@
+<div class="wrap">
+  <div class="wrap-header">
+    <h1><i class="fa fa-calendar"></i> 表单</h1>
+  </div>
+  <div class="path-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']"><span class="fa fa-home"></span> Home</a></li>
+      <li class="breadcrumb-item">Bootstrap</li>
+      <li class="breadcrumb-item active">表单</li>
+    </ol>
+  </div>
+
+  <div class="container-fluid">
+    <div class="form-group">
+      <h2>checkbox</h2>
+      一行一个checkbox的模板
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value=""><span class="checkbox-material"><span class="check"></span></span>
+          Option one
+        </label>
+      </div>
+      <br>
+      一行多个checkbox的模板
+      <div class="checkbox">
+        <label class="checkbox-inline">
+          <input type="checkbox"  value="option1">
+          <span class="checkbox-material"><span class="check"></span></span> 1
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox"  value="option1">
+          <span class="checkbox-material"><span class="check"></span></span> 2
+        </label>
+      </div>
+      <br>
+      一行一个radio的模板
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" value="option1">
+          <span class="circle"></span><span class="check"></span>
+          Option two
+        </label>
+      </div>
+      <br>
+      一行多个radio的模板
+      <div class="radio">
+        <label class="radio-inline">
+          <input type="radio" name="accountType"  value="0" checked>
+          <span class="circle"></span><span class="check"></span> 用户1
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="accountType"  value="1">
+          <span class="circle"></span><span class="check"></span> 用户2
+        </label>
+      </div>
+      <br>
+    </div>
+
+    <div class="form-group">
+      <h2>switch</h2>
+      <!--switch的基本样式： checkbox 需要id绑定label元素，否则无效-->
+      <input type="checkbox" id="site1" name="switch" class="switch toggle-success" checked>
+      <label class="toggle" for="site1"></label>
+
+      <input type="checkbox" id="site2" name="switch" class="switch toggle-info" checked>
+      <label class="toggle" for="site2"></label>
+
+      <input type="checkbox" id="site3" name="switch" class="switch toggle-danger" checked>
+      <label class="toggle" for="site3"></label>
+
+      <input type="checkbox" id="site4" name="switch" class="switch toggle-warning" checked>
+      <label class="toggle" for="site4"></label>
+
+      <input type="checkbox" id="site5" name="switch" class="switch toggle-default" checked>
+      <label class="toggle" for="site5"></label>
+
+      <input type="checkbox" id="site6" name="switch" class="switch toggle-primary" checked>
+      <label class="toggle" for="site6"></label>
+    </div>
+  </div>
+</div>

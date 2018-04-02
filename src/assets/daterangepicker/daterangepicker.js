@@ -120,8 +120,8 @@
                 '</div>' +
                 '<div class="ranges">' +
                     '<div class="range_inputs">' +
-                        '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
-                        '<button class="cancelBtn" type="button"></button>' +
+                        '<input class="applyBtn" disabled="disabled" type="input"></input> ' +
+                        '<input class="cancelBtn" type="input"></input>' +
                     '</div>' +
                 '</div>' +
             '</div>';
@@ -1161,7 +1161,7 @@
 
         outsideClick: function(e) {
             var target = $(e.target);
-            // if the page is clicked anywhere except within the daterangerpicker/button
+            // if the page is clicked anywhere except within the daterangerpicker/input
             // itself then call this.hide()
             if (
                 // ie modal dialog fix

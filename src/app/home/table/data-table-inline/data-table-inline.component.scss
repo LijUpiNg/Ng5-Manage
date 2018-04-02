@@ -1,0 +1,17 @@
+@import "../../../../assets/scss/base";
+@import "../../../../assets/scss/conrainer-header";
+@import "../../../../assets/scss/modal";
+
+.wrap{
+  .container-fluid{
+    .table{
+      .item{
+        width: 100%;
+        display: inline-block;
+      }
+      .btn-link{
+        color: $theme-color;
+      }
+    }
+  }
+}

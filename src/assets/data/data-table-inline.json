@@ -1,0 +1,47 @@
+[
+  {
+    "id": "0",
+    "fan_dian": "100",
+    "user_count": "重庆火锅"
+  },
+  {
+    "id": "1",
+    "fan_dian": "101",
+    "user_count": "重庆小面"
+  },
+  {
+    "id": "2",
+    "fan_dian": "102",
+    "user_count": "糖醋排骨"
+  },
+  {
+    "id": "3",
+    "fan_dian": "103",
+    "user_count": "红烧牛肉"
+  },
+  {
+    "id": "4",
+    "fan_dian": "104",
+    "user_count": "北京烤鸭"
+  },
+  {
+    "id": "5",
+    "fan_dian": "105",
+    "user_count": "酸辣土豆丝"
+  },
+  {
+    "id": "6",
+    "fan_dian": "106",
+    "user_count": "红萝卜玉米排骨汤"
+  },
+  {
+    "id": "7",
+    "fan_dian": "107",
+    "user_count": "红糖糍粑"
+  },
+  {
+    "id": "8",
+    "fan_dian": "108",
+    "user_count": "红烧肉"
+  }
+]

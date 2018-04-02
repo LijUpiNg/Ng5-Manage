@@ -68,16 +68,16 @@
 // 一行多个radio
 .form-horizontal {
   .radio-inline {
-    padding-top: 0px;
+    padding-top: 0;
   }
   .checkbox-inline {
-    padding-top: 0px;
+    padding-top: 0;
   }
 }
 label.radio-inline {
   @include label;
   @include inline;
-  padding-left: 30px;
+  padding-left: 25px;
   input[type=radio] {
     opacity: 0;
     height: 0;
