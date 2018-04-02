@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CKEditorModule } from 'ng2-ckeditor';
+
 
 @NgModule({
   imports: [
@@ -12,6 +14,7 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     RouterModule,
     NgxDatatableModule,
+    CKEditorModule,
     NgbModule.forRoot()
   ],
   exports: [
@@ -19,7 +22,8 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     RouterModule,
     NgxDatatableModule,
-    NgbModule
+    NgbModule,
+    CKEditorModule
   ]
 })
 export class SharedUiModule { }

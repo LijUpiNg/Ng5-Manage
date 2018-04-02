@@ -9,6 +9,11 @@
     </ol>
   </div>
   <div class="container-fluid">
+    <div class="article row">
+      <div class="editor col-md-6"><ckeditor name="ckeditor" id="ckeditor" [(ngModel)]="article" debounce="500"  [config]="config"></ckeditor></div>
+      <div class="editor-article col-md-6"><pre>{{article}}</pre></div>
+    </div>
     参考链接（个人文章）： <a href="https://www.jianshu.com/p/1426a371a7dd" target="_blank">angular4 富文本编辑器 ng2-ckeditor 的使用</a>
   </div>
 </div>
+

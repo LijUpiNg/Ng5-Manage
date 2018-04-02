@@ -1,3 +1,14 @@
 @import "../../../assets/scss/base";
 @import "../../../assets/scss/conrainer-header";
 
+.wrap{
+  .container-fluid{
+    .article{
+      .editor{
+      }
+      .editor-article{
+        background-color: #fff;
+      }
+    }
+  }
+}

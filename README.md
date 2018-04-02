@@ -6,18 +6,21 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 这是一款用angular5写的后台管理系统。
 
 一、bootstrap UI: 使用[@ng-bootstrap/ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap)
+
 ![Image text](https://github.com/LijUpiNg/Ng5-Manage/blob/master/src/assets/ex-img/login.png)
 
 二、datatable表格： 使用[@swimlane/ngx-datatable](https://github.com/swimlane/ngx-datatable)
+
 ![Image text](https://github.com/LijUpiNg/Ng5-Manage/blob/master/src/assets/ex-img/datatable.png)
 
-三、时间插件： 使用[daterangepicker.js](http://www.daterangepicker.com/#ex2)
+三、时间插件： 使用[daterangepicker.js](http://www.daterangepicker.com/#ex2)  
 ![Image text](https://github.com/LijUpiNg/Ng5-Manage/blob/master/src/assets/ex-img/daterangepicker.png)
 
-四、富文本编辑器：  使用ng2-ckeditor
+四、富文本编辑器：  使用ng2-ckeditor  
+![Image text](https://github.com/LijUpiNg/Ng5-Manage/blob/master/src/assets/ex-img/editor.png)
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:42;lp00/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
