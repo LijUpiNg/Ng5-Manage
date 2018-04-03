@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: '', component: BootstrapComponent,
     children: [
       {path: 'Calendar', loadChildren: './calendar/calendar.module#CalendarModule'},
-      {path: 'Input', loadChildren: './input/input.module#InputModule'}
+      {path: 'Input', loadChildren: './input/input.module#InputModule'},
+      {path: 'Modal', loadChildren: './modal/modal.module#ModalModule'}
     ]
   }
 ];

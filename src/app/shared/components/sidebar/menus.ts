@@ -63,6 +63,13 @@ export const menus = [
       },
       {
         id: 2,
+        item: 'Bootstrap模态框',
+        routerLink: '/Bootstrap/Modal',
+        icon: 'fa-list',
+        isActive: false
+      },
+      {
+        id: 3,
         item: '日期',
         routerLink: '/Bootstrap/Calendar',
         icon: 'fa-calendar',

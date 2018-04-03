@@ -25,7 +25,7 @@ export class DataTable2Component implements OnInit {
   public list_count: number = 10;
   public list_page = {index: 1, count: 10};
 
-  constructor(private tableService: TableService, private modalService: NgbModal, private daterangepickerService: DaterangepickerService) {
+  constructor(private tableService: TableService, private ngbModal: NgbModal, private daterangepickerService: DaterangepickerService) {
   }
 
   ngOnInit() {
@@ -81,14 +81,14 @@ export class DataTable2Component implements OnInit {
 
   // 打开模态框 --- 来自ngb-bootstrap的NgbModal
   open(content) {
-    this.modalService.open(content).result.then((result) => {
+    this.ngbModal.open(content).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
 
-  // 模态框错误提示
+  // 模态框错误提示: 参考ngb-bootstrap代码
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

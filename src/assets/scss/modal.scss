@@ -1,58 +1,126 @@
-@media (min-width: 768px) {
-  .modal-dialog1 {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    padding: 0 !important;
-    width: 600px !important;
-    margin: 5% auto !important;
-  }
-}
-.modal{
-  .modal-dialog{
-    padding-top: 10% !important;
-  }
-}
-.modal-content {
-  border-radius: 0;
-  //border: none;
-}
-.modal-header {
-  background-color: #fff;
-  padding: 20px;
-  height: 60px;
-}
-.modal-body {
-  padding: 20px;
-}
-.modal-footer {
-  padding: 10px 20px 15px;
-  text-align: right;
-  border-radius: 0 0 4px 4px;
-  background: #fff;
-  button{
-    margin: 0;
-    &:first-of-type{
-      width: 100px;
-      height: 36px;
-      border: none;
-      background-color: #dddddd;
+.modal {
+  .modal-dialog {
+    height: 100% !important;
+    margin: 1rem auto;
+    .modal-content {
       border-radius: 0;
-      border-bottom-left-radius: 18px;
-      border-top-left-radius: 18px;
-      outline: none;
-    }
-    &:last-of-type{
-      width: 100px;
-      height: 36px;
-      background-color: #27ae60;
-      border: none;
-      margin: 0;
-      color: #fff;
-      border-radius: 0;
-      outline: none;
-      border-bottom-right-radius: 18px;
-      border-top-right-radius: 18px;
+      border-color: rgba(255, 255, 255, 0);
+      background-color: rgba(255, 255, 255, 0);
+      position: static !important;
+      height: 100%;
+      width: 100%;
+      .modal-dialog1 {
+        position: absolute;
+        width: 100%;
+        background: #fff;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 5%;
+        .modal-header {
+          background-color: #fff;
+          padding: .8rem 1rem;
+          border-bottom: none;
+          text-align: center;
+          h4 {
+            width: 100%;
+            font-size: 1rem;
+          }
+        }
+        .modal-body {
+          padding: 0.5rem 1rem;
+          font-size: 1rem;
+          min-height: 6rem;
+        }
+        .modal-footer {
+          padding: 10px 20px 15px;
+          text-align: right;
+          border-radius: 0 0 4px 4px;
+          background: #fff;
+          button {
+            margin: 0;
+            &.btn-modal-close {
+              width: 100px;
+              height: 36px;
+              border: none;
+              background-color: #dddddd;
+              border-radius: 0;
+              border-bottom-left-radius: 18px;
+              border-top-left-radius: 18px;
+              outline: none;
+            }
+            &.btn-modal-save {
+              width: 100px;
+              height: 36px;
+              background-color: #27ae60;
+              border: none;
+              margin: 0;
+              color: #fff;
+              border-radius: 0;
+              outline: none;
+              border-bottom-right-radius: 18px;
+              border-top-right-radius: 18px;
+            }
+            &.btn-back {
+              text-align: center;
+              width: 100px;
+              color: #fff;
+              background-color: #27ae60;
+              border-radius: 18px;
+              outline: none;
+            }
+          }
+        }
+      }
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .modal {
+    .modal-dialog {
+      margin: auto 2rem;
+      .modal-content {
+        .modal-dialog1 {
+          .modal-header {
+            h4 {
+              font-size: 1.5rem;
+            }
+          }
+          .modal-body {
+            font-size: 1.3rem;
+            min-height: 6rem;
+          }
+          .modal-footer {
+            button {
+              margin: 0;
+              font-size: 1rem;
+              width: 49%;
+              height: 2rem;
+              border: none;
+              background-color: #fff;
+              border-radius: 0;
+              outline: none;
+              position: relative;
+              &.btn-modal-close {
+                color: #999;
+                &:before {
+                  content: '';
+                  width: 1px;
+                  height: 2rem;
+                  background-color: #e8e8e8;
+                  position: absolute;
+                  right: .1rem;
+                  top: 0;
+                }
+              }
+              &.btn-back{
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

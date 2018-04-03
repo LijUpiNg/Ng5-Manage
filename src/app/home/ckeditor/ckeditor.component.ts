@@ -13,7 +13,7 @@ export class CkeditorComponent implements OnInit {
     fontSize_defaultLabel : '14',
     toolbarCanCollapse: false,
     toolbar: [
-      ['Maximize', '-', 'Undo', 'Redo', '-', 'Cut', ' Copy', 'Paste', 'PasteText', '-', 'Link', 'Unlink', 'Anchor', '-', 'Table', 'HorizontalRule', 'SpecialChar', '-', 'Source', 'Format'],
+      ['Maximize', '-', 'Undo', 'Redo', '-', 'Cut', ' Copy', 'Paste', 'PasteText', '-', 'Link', 'Unlink', 'Anchor', '-', 'Table', 'Image', 'HorizontalRule', 'SpecialChar', '-', 'Source', 'Format'],
       ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote', '-', 'Font', 'FontSize']
     ]
   };

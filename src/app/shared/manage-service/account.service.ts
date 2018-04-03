@@ -8,7 +8,7 @@ export class AccountService {
   }
 
   // 管理员登录
-  ManagerLogin(param: any, callback: ServiceRequestCallback ) {
+  managerLogin(param: any, callback: ServiceRequestCallback ) {
     return this.appApiService.call<any>('Account.Account-ManagerLogin',
       param, callback);
   }

@@ -1,0 +1,61 @@
+<div class="wrap">
+  <div class="wrap-header">
+    <h1><i class="fa fa-calendar"></i> 模态框</h1>
+  </div>
+  <div class="path-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']"><span class="fa fa-home"></span> Home</a></li>
+      <li class="breadcrumb-item">Bootstrap</li>
+      <li class="breadcrumb-item active">模态框</li>
+    </ol>
+  </div>
+
+  <div class="container-fluid">
+    <div class="modal-div">
+      <div class="alert-ex">
+        <button class="btn btn-success" (click)="open(alert)">alert!</button>
+      </div>
+      <hr>
+      <div class="confirm-ex">
+        <button class="btn btn-warning" (click)="open(confirm)">confirm!</button>
+      </div>
+      <hr>
+      <div>
+        {{closeResult}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #alert let-c="close" let-d="dismiss">
+  <div class="modal-dialog1">
+    <div class="modal-header">
+      <h4 class="modal-title">温馨提示</h4>
+    </div>
+    <div class="modal-body">
+      <p>您现在打开的是一个alert模态框</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-back" (click)="d('Cross click')">确定</button>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #confirm let-c="close" let-d="dismiss">
+  <div class="modal-dialog1">
+    <div class="modal-header">
+      <h4 class="modal-title">TITLE</h4>
+    </div>
+    <div class="modal-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolorem fugit omnis optio velit? Beatae
+        dolores ea esse harum ipsa laboriosam reprehenderit! Debitis hic, neque quaerat quibusdam sit veniam
+        voluptates!</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-modal-close" (click)="d('Cross click')"><span class="fa fa-times"></span> 取消</button>
+      <button type="submit" class="btn btn-modal-save" (click)="c('Close click')"><span class="fa fa-check"></span> 确定
+      </button>
+    </div>
+  </div>
+</ng-template>

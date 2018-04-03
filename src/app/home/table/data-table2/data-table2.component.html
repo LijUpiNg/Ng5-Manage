@@ -149,14 +149,16 @@
 
 <!-- 上级订单列表查询 -->
 <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">上级订单列表查询</h4>
-  </div>
-  <div class="modal-body">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolorem fugit omnis optio velit? Beatae dolores ea esse harum ipsa laboriosam reprehenderit! Debitis hic, neque quaerat quibusdam sit veniam voluptates!</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-modal-close" (click)="d('Cross click')"><span class="fa fa-times"></span> 取消</button>
-    <button type="submit" class="btn btn-modal-save" (click)="c('Close click')"><span class="fa fa-check"></span> 确定</button>
+  <div class="modal-dialog1">
+    <div class="modal-header">
+      <h4 class="modal-title">上级订单列表查询</h4>
+    </div>
+    <div class="modal-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolorem fugit omnis optio velit? Beatae dolores ea esse harum ipsa laboriosam reprehenderit! Debitis hic, neque quaerat quibusdam sit veniam voluptates!</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-modal-close" (click)="d('Cross click')"><span class="fa fa-times"></span> 取消</button>
+      <button type="submit" class="btn btn-modal-save" (click)="c('Close click')"><span class="fa fa-check"></span> 确定</button>
+    </div>
   </div>
 </ng-template>

@@ -8,9 +8,11 @@
       .item{
         width: 100%;
         display: inline-block;
+        cursor: pointer;
       }
       .btn-link{
         color: $theme-color;
+        cursor: pointer;
       }
     }
   }
